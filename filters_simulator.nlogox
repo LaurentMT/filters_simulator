@@ -43,6 +43,7 @@ end
 ;;
 ;;
 to setup-links
+  let i 0
   ask turtles 
   [
     ;; Create 8 outbound connections to peers
@@ -68,6 +69,8 @@ to setup-links
         set nb-outbound-block-only nb-outbound-block-only + 1
       ]
     ]
+    set i i + 1
+    print word i " nodes initialized"
   ]
 end
 
@@ -178,9 +181,9 @@ end
   <widgets>
     <view x="368" wrappingAllowedX="true" y="10" frameRate="30.0" minPycor="0" height="5" showTickCounter="true" patchSize="1.0" fontSize="10" wrappingAllowedY="true" width="5" tickCounterLabel="ticks" maxPycor="0" updateMode="0" maxPxcor="0" minPxcor="0"></view>
     <slider x="35" step="5" y="90" max="500" width="250" display="node-max-connections" height="50" min="0" direction="Horizontal" default="64.0" variable="node-max-connections"></slider>
-    <slider x="35" step="1000" y="25" max="50000" width="250" display="nb-nodes" height="50" min="0" direction="Horizontal" default="2000.0" variable="nb-nodes"></slider>
-    <slider x="35" step="1" y="155" max="100" width="250" display="filter-adoption-rate" height="50" min="0" direction="Horizontal" default="90.0" variable="filter-adoption-rate"></slider>
-    <slider x="35" step="1" y="225" max="100" width="250" display="nb-simulated-networks" height="50" min="1" direction="Horizontal" default="10.0" variable="nb-simulated-networks"></slider>
+    <slider x="35" step="1000" y="25" max="50000" width="250" display="nb-nodes" height="50" min="0" direction="Horizontal" default="20000.0" variable="nb-nodes"></slider>
+    <slider x="35" step="1" y="155" max="100" width="250" display="filter-adoption-rate" height="50" min="0" direction="Horizontal" default="40.0" variable="filter-adoption-rate"></slider>
+    <slider x="35" step="1" y="225" max="100" width="250" display="nb-simulated-networks" height="50" min="1" direction="Horizontal" default="5.0" variable="nb-simulated-networks"></slider>
     <plot x="350" autoPlotX="true" yMax="10.0" autoPlotY="true" yAxis="#propagations" y="20" xMin="0.0" height="335" legend="false" xMax="100.0" yMin="0.0" width="795" xAxis="%infected nodes" display="Transactions propagation">
       <setup>set-plot-x-range 1 101
 set-histogram-num-bars 100</setup>
